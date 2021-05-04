@@ -1,0 +1,54 @@
+.card{
+    
+    background-color: #feefc3;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: .4s;
+    cursor: pointer;
+}
+
+
+/* 
+dark
+.card{
+    box-shadow: 3px -3px 28px -7px rgba(38,37,37,0.75);
+    background-color: rgb(15, 15, 14);
+    color: white;
+} */
+
+#card-foot{
+    
+    display: none;
+    /* visibility: hidden;
+    opacity: 0; */
+    transition: display 0s linear;
+   
+}
+#card-foot span{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card:hover {
+   
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.card:hover #card-foot{
+   
+   display: block;
+   /* visibility: visible;
+     opacity: 1; */
+}
+
+.unactive{
+    opacity: .4;    
+}
+.unactive h5{
+    text-decoration: line-through;
+    color: red;
+}
+
+#del:hover{
+    border: 1px solid black;
+    padding: 5px 5px;
+}

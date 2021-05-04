@@ -1,0 +1,83 @@
+<div class="container mt-4">
+
+    <div class="row">
+        <div class="col-6 ">
+            <h2> Todo Tasks</h2>
+        </div>
+        <div class="col-6 text-right">
+            <!-- <button class="btn btn-warning text-white">Add Task</button> -->
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Add Task
+            </button>
+
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog text-left" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header ">
+                            <h5 class="modal-title " id="exampleModalLabel">Add Task</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body ">
+                            <form (ngSubmit)="onAddtask(f)" #f="ngForm">
+                                <div class="form-group">
+                                    <label for="InputTitle">Task Title</label>
+                                    <input type="text" required class="form-control" name="title" id="InputTitle"
+                                        ngModel placeholder="Enter Title">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputDescription">Task Description</label>
+                                    <input type="text" class="form-control" name="desc" ngModel required
+                                        id="InputDescription" placeholder="Description">
+                                </div>
+
+                                <div class="mt-5 text-right">
+                                    <button type="submit" [disabled]="!f.valid"
+                                        class="btn btn-primary mr-3">Add</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+   
+    <div class="container">
+        <div class="row">
+
+
+            <div *ngIf="this.todosArray.length===0; else elseBlock">
+               
+                
+                <div id="empty" class="text-center">
+                    <div>
+                        <img height="170px" src="../../assets/images/yellow_empty.svg" alt="">
+                        <h5 class="mt-4">Start by adding a new task</h5>
+                        <h6>Creating new task makes work easier to manage.<br>Mark the task as completed by clicking on it</h6>
+                    </div>
+                </div>
+           
+            </div>
+            <ng-template #elseBlock>
+
+                <div class="col-12 col-md-4" *ngFor="let todo of todosArray">
+                    <app-todo-item [todo]="todo" (todoDelete)="onTodoDelete($event)" (todoComplete)="onTodoComplete($event)"></app-todo-item>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>
