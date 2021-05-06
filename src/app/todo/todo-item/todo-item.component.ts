@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { darkTheme } from 'src/app/darkTheme.service';
 import { Todo } from '../Todo';
 @Component({
   selector: 'app-todo-item',
@@ -7,7 +8,13 @@ import { Todo } from '../Todo';
 })
 export class TodoItemComponent implements OnInit {
 
-  constructor() { }
+  theme:boolean;
+  constructor(private darkThemeService:darkTheme) { 
+    this.darkThemeService.themeUpdated.subscribe(
+      (currentTheme:boolean) => this.theme = currentTheme
+      );
+
+  }
 
   @Input() todo:Todo;
   @Output() todoDelete: EventEmitter<Todo>= new EventEmitter();

@@ -8,6 +8,7 @@ import { TodoComponent } from './todo/todo.component';
 import { TodoItemComponent } from './todo/todo-item/todo-item.component';
 import { AboutComponent } from './about/about.component';
 import { FormsModule } from '@angular/forms';
+import { darkTheme } from './darkTheme.service';
 
 const appRoutes:Routes =[
  {path:'',component:TodoComponent},
@@ -27,7 +28,7 @@ const appRoutes:Routes =[
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [darkTheme],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,8 @@
+#wrapper{
+    transition: .4s;
+    height: 100vh;
+}
+
+.dark-theme {
+    background-color: black;
+}

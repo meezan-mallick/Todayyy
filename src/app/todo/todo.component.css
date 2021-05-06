@@ -1,5 +1,36 @@
 #empty{
     margin-top: 80px;
-    margin-left: 330px;
+    margin-left: 220px;
+    color: #707070;
+}
+#empty svg{
+    height: 170px;
+}
+#empty svg .board-bg{
+    fill: rgb(230, 230, 230);
+    transition: .4s;
 }
 
+.dark-theme h2{
+    color:white;
+}
+.dark-theme hr{
+    border-color: #707070;
+}
+
+.dark-theme .modal-header{
+    background-color: black;
+    color: white;
+}
+.dark-theme .modal-body{
+    background-color: black;
+    color: white;
+}
+
+.dark-theme #empty{
+color: rgb(61, 59, 59);
+}
+
+.dark-theme #empty svg .board-bg{
+    fill: rgb(20, 20, 20);
+}

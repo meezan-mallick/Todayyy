@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { darkTheme } from '../darkTheme.service';
 import { Todo } from './Todo';
 
 @Component({
@@ -10,9 +11,14 @@ import { Todo } from './Todo';
 export class TodoComponent implements OnInit {
 
   localitem:string;
+  theme:boolean;
   emptyImg:string = "";
   todosArray:Todo[];
-  constructor() {
+  constructor(private darkThemeService:darkTheme) {
+
+    this.darkThemeService.themeUpdated.subscribe(
+      (currentTheme:boolean) => this.theme = currentTheme
+      );
 
     this.localitem = localStorage.getItem("todos");
     if(this.localitem == null){

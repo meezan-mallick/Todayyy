@@ -1,24 +1,25 @@
-<div (click)="onCompleted(todo)" class="card mb-4">
-<div [ngClass]="{'unactive':!todo.active}" class="card-body ">
-        <h5 class="card-title">{{todo.title}}</h5>
-        <p class="card-text">{{todo.description}}.</p>
-        <div id="card-foot" class="">
+<div [ngClass]="{'dark-theme':theme}" id="wrapper">
+    <div (click)="onCompleted(todo)" class="card mb-4">
+        <div [ngClass]="{'unactive':!todo.active}" class="card-body ">
+            <h5 class="card-title">{{todo.title}}</h5>
+            <p class="card-text">{{todo.description}}.</p>
+            <div id="card-foot" class="">
 
-            <span *ngIf="todo.active; else elseBlock">
-               Mark as completed.
-            </span>
+                <span *ngIf="todo.active; else elseBlock">
+                    Mark as completed.
+                </span>
 
-            <ng-template #elseBlock>
-                Mark as pending.
+                <ng-template #elseBlock>
+                    Mark as pending.
 
-                
-            </ng-template>
 
-            
-            <span class="card-link text-danger float-right"><button class="btn btn-danger" (click)="onDelete(todo)">Delete</button></span>
+                </ng-template>
+
+
+                <span class="card-link text-danger float-right"><button class="btn btn-danger"
+                        (click)="onDelete(todo)">Delete</button></span>
+            </div>
+            <!-- <a href="#" class="card-link text-success"> Done</a> -->
         </div>
-        <!-- <a href="#" class="card-link text-success"> Done</a> -->
     </div>
 </div>
-
-
